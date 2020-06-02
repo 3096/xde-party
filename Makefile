@@ -74,7 +74,7 @@ LIBS	:=  -lAether -lnx `sdl2-config --libs` -lSDL2_ttf `freetype-config --libs` 
 # list of directories containing libraries, this must be the top level containing
 # include and lib
 #---------------------------------------------------------------------------------
-LIBDIRS	:= $(PORTLIBS) $(LIBNX) $(CURDIR)/libs/Aether
+LIBDIRS	:= $(PORTLIBS) $(LIBNX)
 
 #---------------------------------------------------------------------------------
 # no real need to edit anything past this point unless you need to add additional
@@ -169,17 +169,12 @@ endif
 all: $(BUILD)
 
 $(BUILD):
-ifeq ($(wildcard $(CURDIR)/libs/Aether/LICENSE),)
-	@$(error "Please run 'git submodule update --init' before running 'make'")
-endif
 	@[ -d $@ ] || mkdir -p $@
-	@$(MAKE) -C $(CURDIR)/libs/Aether -f $(CURDIR)/libs/Aether/Makefile
 	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
 
 #---------------------------------------------------------------------------------
 clean:
 	@echo clean ...
-	@$(MAKE) -C $(CURDIR)/libs/Aether -f $(CURDIR)/libs/Aether/Makefile clean
 ifeq ($(strip $(APP_JSON)),)
 	@rm -fr $(BUILD) $(TARGET).nro $(TARGET).nacp $(TARGET).elf
 else
