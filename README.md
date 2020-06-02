@@ -1,16 +1,6 @@
-# aether-app-template
-A Switch Homebrew app using the [Aether UI library](https://github.com/tallbl0nde/Aether), including a simple hello world example created by @tallbl0nde.
+# XDE Party Editor
+A quick homebrew app for editing Xenoblade DE party member in the save file. It's only for my personal use, so it's not something of release quality. It'll only use a save from Atmosphere's save redirect dir.
 
-Documentation of Aether can be found [here](https://tallbl0nde.github.io/Aether/).
+Note: the game crashes because it cannot handle party members with no weapon equipped, so you need to [patch your game](/patch/xde.pchtxt) to avoid that.
 
-## Building
-You'll need the following packages installed through (dkp-)pacman in order to compile this template app:
-```
-devkitA64
-libnx
-switch-sdl2
-switch-sdl2_gfx
-switch-sdl2_image
-switch-sdl2_ttf
-```
-Once these are installed, simply run `make` in the project directory.
+Icon art credit [@green322green](https://twitter.com/green322green/status/1267187454890524672)

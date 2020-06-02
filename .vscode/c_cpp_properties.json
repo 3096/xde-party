@@ -9,7 +9,7 @@
             "compilerPath": "${DEVKITPRO}/devkitA64/bin/aarch64-none-elf-g++",
             "cppStandard": "c++17",
             "forcedInclude": [
-                ".vscode/vscode_preinclude.h"
+                "${workspaceFolder}/.vscode/vscode_preinclude.h"
             ]
         }
     ],

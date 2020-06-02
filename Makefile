@@ -38,15 +38,12 @@ include $(DEVKITPRO)/libnx/switch_rules
 #   NACP building is skipped as well.
 #---------------------------------------------------------------------------------
 
-VER_MAJOR	:= 0
-VER_MINOR	:= 0
-VER_MICRO	:= 1
+TARGET		:=	xde-party
 
-APP_TITLE	:=	Aether Example App
-APP_AUTHOR	:=	
-APP_VERSION	:=	${VER_MAJOR}.${VER_MINOR}.${VER_MICRO}
+APP_TITLE	:=	XDE Party Editor
+APP_AUTHOR	:=	3096
+APP_VERSION	:=	$(shell git rev-parse HEAD && rm -f $(notdir $(TARGET)).nacp)
 
-TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
 SOURCES		:=	source
 DATA		:=	data

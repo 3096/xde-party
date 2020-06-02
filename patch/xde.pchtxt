@@ -1,0 +1,40 @@
+@title Xenoblade Definitive Edition
+@program 0100FF500E34A000
+@url "https://raw.githubusercontent.com/3096/xde-party/master/patch/xde.pchtxt"
+
+@flag offset_shift 0x100
+
+@flag nsobid 1EC9082CB52ECAF561EE45BC00FF318E9912232B  // 1.1.1
+
+// weapon res bind skip
+@enabled
+56A370 C0035FD6
+
+// force docked mode
+@enabled
+B39950 20008052C0035FD6
+B39940 20008052C0035FD6
+
+// force handheld mode
+@disabled
+B39950 00008052C0035FD6
+B39940 00008052C0035FD6
+
+@stop
+================================================================================
+
+@flag nsobid 2E071B4562D6656BA316306D9401698DA5E68DE7  // 1.0.0
+
+// weapon res bind skip
+@enabled
+56A1E0 C0035FD6
+
+// force docked mode
+@enabled
+B39770 20008052C0035FD6
+B39780 20008052C0035FD6
+
+// force handheld mode
+@disabled
+B39770 00008052C0035FD6
+B39780 00008052C0035FD6
