@@ -3,4 +3,4 @@ A quick homebrew app for editing Xenoblade DE party member in the save file. It'
 
 Note: the game crashes because it cannot handle party members with no weapon equipped, so you need to [patch your game](/patch/xde.pchtxt) to avoid that.
 
-Icon art credit [@green322green](https://twitter.com/green322green/status/1267187454890524672)
+Icon art credit [@xseynao](https://twitter.com/xseynao/status/1268160826197676032)

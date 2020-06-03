@@ -3,6 +3,7 @@
 #include <filesystem>
 
 #include "Aether/Aether.hpp"
+#include "game.hpp"
 
 class MainScreen : public Aether::Screen {
    private:
@@ -10,27 +11,27 @@ class MainScreen : public Aether::Screen {
     MainScreen(const MainScreen&) = delete;
     ~MainScreen();
 
-    // const
-    static constexpr auto AMS_GAME_SAVE_DIR = "sdmc:/atmosphere/saves/sysmmc/user/account/0100ff500e34a000/";
-    static constexpr auto SAVE_PREFIX = "bfsgame0";
-    static constexpr auto SAVE_EXT = ".sav";
-
-    // ui members
-    Aether::List* m_saveList;
-    Aether::List* m_partySlotList;
-    Aether::List* m_partyMemberList;
-
-    Aether::Text* m_statusText;
-
-    // members
+    // saves
+    Aether::List* mp_saveList;
+    std::vector<Aether::ListButton*> m_saveListButtons;
+    size_t m_curSelectedSaveIndex;
     std::filesystem::path m_curSavePath;
-    uint8_t m_curTargetSlot;
-    uint16_t m_curSelectedPartyMember;
+    std::string m_curSaveSlot;
+
+    // party slots
+    Aether::List* mp_partySlotDisplayList;
+    Aether::ListButton* mp_partySlotDisplayListButtons[game::PARTY_SLOT_COUNT];
+    game::Save::Party m_party;
+    size_t m_curPartySlotTarget;
+
+    // party members
+    Aether::List* mp_partyMemberList;
+
+    // ui
+    Aether::TextBlock* mp_statusText;
 
     // think you can take me?
-    void onLoad() override;
-    void setSavePath(const std::filesystem::path& userDir, std::string_view saveSlot);
-    void writeSlot();
+    void writeToSave();
 
    public:
     static inline auto& getInstance() {
