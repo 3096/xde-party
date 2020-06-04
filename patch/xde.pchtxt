@@ -6,9 +6,9 @@
 
 @flag nsobid 1EC9082CB52ECAF561EE45BC00FF318E9912232B  // 1.1.1
 
-// weapon res bind skip
+// weapon res bind fix
 @enabled
-56A370 C0035FD6
+56A3E0 C0035FD6
 
 // force docked mode
 @enabled
@@ -25,9 +25,9 @@ B39940 00008052C0035FD6
 
 @flag nsobid 2E071B4562D6656BA316306D9401698DA5E68DE7  // 1.0.0
 
-// weapon res bind skip
+// weapon res bind fix
 @enabled
-56A1E0 C0035FD6
+56A250 C0035FD6
 
 // force docked mode
 @enabled
