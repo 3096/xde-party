@@ -14,7 +14,7 @@ constexpr auto SAVE_PREFIX = "bfsgame0";
 constexpr auto SAVE_EXT = ".sav";
 const auto SAVE_NUMBERS = std::list<std::string>{"0a", "0", "1", "2"};
 
-constexpr auto PARTY_SLOT_COUNT = 3;
+constexpr auto PARTY_SLOT_COUNT = 7;
 
 // type
 struct PartyMember {
@@ -32,7 +32,7 @@ struct Save {
     struct Party {
         uint16_t ids[game::PARTY_SLOT_COUNT];
     } partyIds;
-    uint8_t unk1[0x12];
+    uint8_t unk1[0x18 - game::PARTY_SLOT_COUNT * sizeof(uint16_t)];
     uint8_t partyMemberCount;
     uint8_t unk2[0x152F];
 };
