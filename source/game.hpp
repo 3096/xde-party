@@ -9,7 +9,11 @@
 namespace game {
 
 // const
-constexpr auto AMS_GAME_SAVE_DIR = "sdmc:/atmosphere/saves/sysmmc/user/account/0100ff500e34a000/";
+constexpr auto AMS_SAVE_GAME_DIR = "sdmc:/atmosphere/saves/sysmmc/user/account/0100ff500e34a000/";
+const auto SAVE_MANAGER_GAME_DIRS = std::list<std::string>{
+    "sdmc:/switch/Checkpoint/saves/0x0100FF500E34A000 Xenoblade Chronicles Definitive Edition/",  // checkpoint
+    "sdmc:/JKSV/Xenoblade Chronicles Definitive Edition/",                                        // JKSV
+};
 constexpr auto SAVE_PREFIX = "bfsgame0";
 constexpr auto SAVE_EXT = ".sav";
 const auto SAVE_NUMBERS = std::list<std::string>{"0a", "0", "1", "2"};

@@ -15,7 +15,8 @@ class MainScreen : public Aether::Screen {
     Aether::List* mp_saveList;
     std::vector<Aether::ListButton*> m_saveListButtons;
     size_t m_curSelectedSaveIndex;
-    std::filesystem::path m_curSavePath;
+    std::filesystem::path m_curSaveDir;
+    bool m_curSaveDirIsAmsSave;
     std::string m_curSaveSlot;
 
     // party slots
@@ -30,7 +31,8 @@ class MainScreen : public Aether::Screen {
     // ui
     Aether::TextBlock* mp_statusText;
 
-    // think you can take me?
+    // helpers
+    void setSelectedSave(size_t saveIndex, std::filesystem::path saveDir, std::string saveSlot);
     void writeToSave();
 
    public:
