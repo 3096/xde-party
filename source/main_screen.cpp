@@ -124,23 +124,39 @@ void MainScreen::setSelectedSave(size_t saveIndex, std::filesystem::path saveDir
 void MainScreen::writeToSave() {
     if (m_curSaveSlot.empty()) return;
 
-    auto saveFilePath = std::filesystem::path{game::SAVE_PREFIX + m_curSaveSlot + game::SAVE_EXT};
+    auto statusStr = std::string{};
+    auto saveFileName = std::filesystem::path{game::SAVE_PREFIX + m_curSaveSlot + game::SAVE_EXT};
 
     if (m_curSaveDirIsAmsSave) {
         auto targetPath0 = m_curSaveDir;
         targetPath0 /= "0";
-        targetPath0 /= saveFilePath;
-        writePartyToSave(targetPath0, m_party);
+        targetPath0 /= saveFileName;
+        if (std::filesystem::exists(targetPath0)) {
+            writePartyToSave(targetPath0, m_party);
+            statusStr += "Written 0/" + saveFileName.string() + "!";
+        } else {
+            statusStr += "0/" + saveFileName.string() + " not found\n";
+        }
 
         auto targetPath1 = m_curSaveDir;
         targetPath1 /= "1";
-        targetPath1 /= saveFilePath;
-        writePartyToSave(targetPath1, m_party);
+        targetPath1 /= saveFileName;
+        if (std::filesystem::exists(targetPath1)) {
+            writePartyToSave(targetPath1, m_party);
+            statusStr += "Written 1/" + saveFileName.string() + "!";
+        } else {
+            statusStr += "1/" + saveFileName.string() + " not found\n";
+        }
     } else {
         auto targetPath = m_curSaveDir;
-        targetPath /= saveFilePath;
-        writePartyToSave(targetPath, m_party);
+        targetPath /= saveFileName;
+        if (std::filesystem::exists(targetPath)) {
+            writePartyToSave(targetPath, m_party);
+            statusStr += "Written " + saveFileName.string() + "!";
+        } else {
+            statusStr += saveFileName.string() + " not found\n";
+        }
     }
 
-    mp_statusText->setString("Written " + saveFilePath.string());
+    mp_statusText->setString(statusStr);
 }
